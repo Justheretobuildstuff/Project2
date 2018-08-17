@@ -35,6 +35,11 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
+// Routes
+// example route: require("./routes/html-routes.js")(app);
+// Syncing our sequelize models and then starting our Express app
+
+db.sequelize.sync({ force: true }).then(function() {
 // Route config -------------------------------------------/
 require("./routes/html-routes")(app);
 require("./routes/api-routes")(app);
@@ -42,6 +47,7 @@ require("./routes/api-routes")(app);
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
 db.sequelize.sync().then(function() {
+
   app.listen(PORT, function() {
     console.info(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
@@ -49,4 +55,5 @@ db.sequelize.sync().then(function() {
       PORT
     );
   });
+});
 });
