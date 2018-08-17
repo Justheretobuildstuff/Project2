@@ -7,7 +7,7 @@ let https = require ('https');
 // **********************************************
 
 // Replace the accessKey string value with your valid access key.
-let accessKey = 'enter key here';
+let accessKey = 'a609ad2478ad44b284543dd4397cf74e';
 
 // Replace or verify the region.
 
