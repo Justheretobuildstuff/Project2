@@ -1,16 +1,12 @@
 {
-  "name": "package.json",
+  "name": "project2",
   "version": "1.0.0",
-  "description": "",
+  "description": "Summary for Project 2.",
   "main": "server.js",
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
-    "express-handlebars": "^3.0.0",
-    "fs": "^0.0.1-security",
     "method-override": "^3.0.0",
-    "mysql2": "^1.6.1",
-    "path": "^0.12.7",
     "sequelize": "^4.38.0"
   },
   "devDependencies": {},

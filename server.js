@@ -1,59 +1,24 @@
-// *****************************************************************************
-// Server.js - This file is the initial starting point for the Node/Express server.
-//
-// ******************************************************************************
-// *** Dependencies
-// =============================================================
-const express = require("express");
-const bodyParser = require("body-parser");
-const exphbs = require("express-handlebars");
-const methodOverride = require("method-override");
+var express = require('express');
+var app = express();
+var bodyParser = require('body-parser');
+var db = require('./models');
+var apiRoutes = require('./app/routes/apiRoutes.js');
 
-const db = require("./models");
+var PORT = process.env.PORT || 3000;
 
-// Sets up the Express App
-// =============================================================
-const app = express();
-const PORT = process.env.PORT || 3000;
-
-// Method override for RESTFul form submissions
-app.use(methodOverride("_method"));
-
-// Parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }));
-
-// Parse application/json
+// Sets up the Express app to handle data parsing
 app.use(bodyParser.json());
-app.use(express.static("public"));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.text());
+app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
-// Handlebars config ---------------------------------------/
-app.engine(
-  "handlebars",
-  exphbs({
-    defaultLayout: "main"
-  })
-);
-app.set("view engine", "handlebars");
+// Static directory
+app.use(express.static('public'));
 
-// Routes
-// example route: require("./routes/html-routes.js")(app);
-// Syncing our sequelize models and then starting our Express app
+apiRoutes(app, db);
 
-db.sequelize.sync({ force: true }).then(function() {
-// Route config -------------------------------------------/
-require("./routes/html-routes")(app);
-require("./routes/api-routes")(app);
-
-// Syncing our sequelize models and then starting our Express app
-// =============================================================
-db.sequelize.sync().then(function() {
-
-  app.listen(PORT, function() {
-    console.info(
-      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
-      PORT,
-      PORT
-    );
-  });
-});
+db.sequelize.sync().then(function () {
+    app.listen(PORT, function () {
+        console.log(`Listening on PORT ${PORT}`);
+    });
 });
