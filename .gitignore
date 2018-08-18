@@ -1,6 +1,5 @@
 # DS_Store
 **/.DS_Store
-
 # Logs
 logs
 *.log
@@ -61,4 +60,3 @@ typings/
 
 # dotenv environment variables file
 .env
-
