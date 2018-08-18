@@ -41,6 +41,7 @@ app.set("view engine", "handlebars");
 
 db.sequelize.sync({ force: true }).then(function() {
 // Route config -------------------------------------------/
+
 require("./routes/html-routes")(app);
 require("./routes/api-routes")(app);
 
