@@ -1,4 +1,3 @@
-/*
 
 $(document).ready(function () {
 
@@ -18,6 +17,7 @@ $(document).ready(function () {
         exports.userInput = userInput;
     });
 <<<<<<< HEAD
+<<<<<<< HEAD
     let userInput = $("#Textbox").val();
     exports.userInput = userInput;
 });
@@ -29,3 +29,8 @@ exports.userInput = userInput;
 =======
 });
 >>>>>>> 431d15317e25ef7ca7ca5aaa3850fb26032a37b9
+=======
+    let userInput = $("#Textbox").val();
+    exports.userInput = userInput;
+});
+>>>>>>> 1075c607f1cbdbc13f51994c15ad2d3ee1cfa8ac
