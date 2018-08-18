@@ -1,4 +1,9 @@
-const testApiController = require("../controllers/apiController");
+const testApiController = require("../controllers/apiController.js");
+const sentimentResponse = require("../analyzeSentiment.js")
+
+console.log(sentimentResponse.documents)
+
+/*
 
 module.exports = function (app) {
   app.get("/test", testApiController.index);
@@ -71,3 +76,5 @@ module.exports = function (app) {
       });
     });
   };
+
+  */

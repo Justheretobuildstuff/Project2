@@ -1,3 +1,5 @@
+/*
+
 $(document).ready(function () {
 
     // AJAX
@@ -14,3 +16,8 @@ $(document).ready(function () {
     let userInput = $("#Textbox").val();
     exports.userInput = userInput;
 });
+
+*/
+
+let userInput = "Can you hear me?"
+exports.userInput = userInput;
