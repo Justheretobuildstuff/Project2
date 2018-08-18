@@ -56,11 +56,3 @@ let documents = { 'documents': [
 exports.documents = documents;
 
 get_sentiments (documents);
-
-/*
-
-const sentimentResponse = require("../analyzeSentiment.js")
-
-console.log(sentimentResponse.documents)
-
-*/
