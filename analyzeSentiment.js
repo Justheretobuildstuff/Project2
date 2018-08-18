@@ -1,13 +1,17 @@
 'use strict';
 
+require("dotenv").config();
 let https = require ('https');
+const keys = require('./keys.js');
+const userinput = "did this work?"
 
 // **********************************************
 // *** Update or verify the following values. ***
 // **********************************************
 
 // Replace the accessKey string value with your valid access key.
-let accessKey = 'a609ad2478ad44b284543dd4397cf74e';
+
+let accessKey = keys.Azure_key.access_key;
 
 // Replace or verify the region.
 
@@ -53,7 +57,7 @@ let get_sentiments = function (documents) {
 }
 
 let documents = { 'documents': [
-    { 'id': '1', 'language': 'en', 'text': 'Douche Bag' },
+    { 'id': '1', 'language': 'en', 'text': userinput },
     { 'id': '2', 'language': 'es', 'text': 'Este ha sido un dia terrible, llegué tarde al trabajo debido a un accidente automobilistico.' },
 ]};
 
