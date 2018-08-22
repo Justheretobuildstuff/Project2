@@ -12,6 +12,10 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
         crossorigin="anonymous">
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+
 </head>
 
 <body>
@@ -40,11 +44,13 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+
+    <div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
     <script>
         $(document).ready(function () {
 
             // AJAX
-            axios.get("api/all").then(response => 
+            axios.get("api/all").then(response =>
                 response.data.forEach(item => $("#items")
                     .append(`<p>${response.data.text} - ${response.data.category}</p>`))
             );
@@ -52,8 +58,53 @@
                 axios.post("api/new", {
                     text: $("#Textbox").val(),
                     category: $("#TextCategory").val()
-                }).then(response => $("#items").append(`<p>${response.data.text} - ${response.data.category}</p>`));
+                }).then(response => $("#items").append(
+                    `<p>${response.data.text} - ${response.data.category}</p>`));
             });
+        });
+
+        Highcharts.chart('container', {
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: 'Browser market shares in January, 2018'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        }
+                    }
+                }
+            },
+            series: [{
+                name: 'Brands',
+                colorByPoint: true,
+                data: [{
+                    name: 'Good',
+                    y: 40,
+                    sliced: true,
+                    selected: true
+                }, {
+                    name: 'Neutral',
+                    y: 20
+                }, {
+                    name: 'Douche',
+                    y: 40
+                }]
+            }]
         });
     </script>
 </body>
