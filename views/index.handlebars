@@ -1,11 +1,16 @@
+  <body>
+<div class="header">
+
+
 <h1>Douche Bag Detector</h1>
-
-<body>
-<form>
-Put in your text to see if it is Douchy!
+    
+</div>
+    <div class="contentContainer">
+<form method="POST" action="/userInput">
+<h2>Put in your text to see if it is Douchy!</h2>
 <br>
- <input type = "text" name="userInput" id="userInput">
-
+ <textarea rows="4" name="userInput" id="userInput">
+</textarea>
  <br>
  <button id="submit">Are you Douche?</button>
 
@@ -17,21 +22,9 @@ Put in your text to see if it is Douchy!
 {{averageScore}}
 
 </form>
-
-<h2>Check to see if your Favorite Clebrity is a Douche?</h2>
-<form>
-Put in your favorite celebrity Twitter handle to see if they are a douche! 
-<br>
- <input type = "text" name="userInput" id="celebrity">
-
- <br>
- <button id="submit">Is your favorite Celeb a D-Bag?</button>
-
- <h2>Douche Score</h2>
- {{celebScore}}
-
-</form>
-
-
-
+</div>
 </body>
+
+
+
+</html>
