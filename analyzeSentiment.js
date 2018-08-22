@@ -74,3 +74,5 @@ app.post("/api/posts", function(req, res) {
   });
 
 get_sentiments (documents);
+
+module.exports = get_sentiments;

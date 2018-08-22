@@ -1,4 +1,5 @@
 module.exports = function(app, db) {
+
   //Crud
   app.get("/api/all", function(req, res) {
     db.Item.findAll({}).then(function(result) {
@@ -16,6 +17,25 @@ module.exports = function(app, db) {
       res.json(result);
     });
   });
+
+  // Testing POST route to get data to Josh's API
+  app.post("/userInput", (req, res) => {
+    if (typeof req.body.userInput === "undefined") {
+      // if the parameter is missing, example response...
+      res
+        .status(400)
+        .json({ error: "missing parameter userInput", data: null });
+      // Only an  example
+      return;
+    }
+
+    let userInput = req.body.userInput;
+
+    res.status(200).json({ error: null, data: userInput });
+    // We received the value and only to show the example, returns it in a json within the key 'data'
+
+  });
+  // END TEST
 
   app.put("/api/update/:id", function(req, res) {
     db.Item.update(
