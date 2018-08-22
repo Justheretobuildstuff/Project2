@@ -13,22 +13,21 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 db.sequelize.sync({ force: true }).then(function() {
-    
-// Static directory
-app.use(express.static("public"));
+  // Static directory
+  app.use(express.static("public"));
 
-// Handlebars config ---------------------------------------/
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
+  // Handlebars config ---------------------------------------/
+  app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+  app.set("view engine", "handlebars");
 
-// Route config -------------------------------------------/
-require("./routes/html-routes")(app);
-require("./routes/api-routes")(app);
+  // Route config -------------------------------------------/
+  require("./routes/html-routes")(app);
+  require("./routes/api-routes")(app);
 
-// Start our server so that it can begin listening to client requests.
-db.sequelize.sync().then(function() {
-  app.listen(PORT, function() {
-    console.log(`Listening on PORT ${PORT}`);
+  // Start our server so that it can begin listening to client requests.
+  db.sequelize.sync().then(function() {
+    app.listen(PORT, function() {
+      console.log(`Listening on PORT ${PORT}`);
+    });
   });
-});
 });
