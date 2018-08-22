@@ -34,19 +34,6 @@ module.exports = function(app, db) {
     res.status(200).json({ error: null, data: userInput });
     // We received the value and only to show the example, returns it in a json within the key 'data'
 
-    let documents = {
-      documents: [
-        { id: "1", language: "en", text: userInput },
-        {
-          id: "2",
-          language: "es",
-          text:
-            "Este ha sido un dia terrible, llegué tarde al trabajo debido a un accidente automobilistico."
-        }
-      ]
-    };
-
-    analyzer.get_sentiments(documents);
   });
   // END TEST
 
