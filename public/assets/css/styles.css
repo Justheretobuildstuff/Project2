@@ -1,3 +1,11 @@
+
+body {
+    background-color: #4AA0EB;
+    margin: 0px;
+    padding: 0px;
+    margin-top: 0;
+    
+}
 /*
 Color Pallet
 
@@ -14,14 +22,6 @@ font-family: 'Hind Siliguri', sans-serif;
 font-family: 'Signika', sans-serif;
 
 */
-
-body {
-    background-color: #4AA0EB;
-    margin: 0px;
-   padding: 0px;
-   margin-top: 0;
-
-}
 
 .header {
     background-image: url("BUa82WGAQnyHFwq2mE++Gg_thumb_1241.jpg");
