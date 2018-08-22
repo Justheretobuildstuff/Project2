@@ -1,10 +1,8 @@
-var express = require('express');
+var express = require("express");
 var app = express();
-var mysql = require('mysql');
-var bodyParser = require('body-parser');
-var sequelize = require('sequelize');
-var db = require('./models');
-var apiRoutes = require('./app/routes/apiRoutes.js');
+var bodyParser = require("body-parser");
+var db = require("./models");
+var exphbs = require("express-handlebars");
 
 var PORT = process.env.PORT || 3000;
 
@@ -12,19 +10,24 @@ var PORT = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
-app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
+app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 db.sequelize.sync({ force: true }).then(function() {
-// Route config -------------------------------------------/
+  // Static directory
+  app.use(express.static("public"));
 
-require("./routes/html-routes")(app);
-require("./routes/api-routes")(app);
+  // Handlebars config ---------------------------------------/
+  app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+  app.set("view engine", "handlebars");
 
-apiRoutes(app, db);
+  // Route config -------------------------------------------/
+  require("./routes/html-routes")(app);
+  require("./routes/api-routes")(app);
 
-db.sequelize.sync().then(function () {
-    app.listen(PORT, function () {
-        console.log(`Listening on PORT ${PORT}`);
+  // Start our server so that it can begin listening to client requests.
+  db.sequelize.sync().then(function() {
+    app.listen(PORT, function() {
+      console.log(`Listening on PORT ${PORT}`);
     });
-});
+  });
 });
