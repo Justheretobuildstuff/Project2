@@ -12,16 +12,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
-<<<<<<< HEAD
 db.sequelize.sync({ force: true }).then(function() {
-// Route config -------------------------------------------/
-
-require("./routes/html-routes")(app);
-require("./routes/api-routes")(app);
-=======
+    
 // Static directory
 app.use(express.static("public"));
->>>>>>> Danny
 
 // Handlebars config ---------------------------------------/
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
