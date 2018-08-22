@@ -1,6 +1,8 @@
 var express = require('express');
 var app = express();
+var mysql = require('mysql');
 var bodyParser = require('body-parser');
+var sequelize = require('sequelize');
 var db = require('./models');
 var apiRoutes = require('./app/routes/apiRoutes.js');
 

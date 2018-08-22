@@ -3,7 +3,7 @@
 require("dotenv").config();
 let https = require ('https');
 const keys = require('./keys.js');
-const userinput = "did this work?"
+const formInput = require('./public/assets/js/douche.js')
 
 // **********************************************
 // *** Update or verify the following values. ***
@@ -13,14 +13,6 @@ const userinput = "did this work?"
 
 let accessKey = keys.Azure_key.access_key;
 
-// Replace or verify the region.
-
-// You must use the same region in your REST API call as you used to obtain your access keys.
-// For example, if you obtained your access keys from the westus region, replace 
-// "westcentralus" in the URI below with "westus".
-
-// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-// a free trial access key, you should not need to change this region.
 let uri = 'westus.api.cognitive.microsoft.com';
 let path = '/text/analytics/v2.0/sentiment';
 
@@ -57,8 +49,30 @@ let get_sentiments = function (documents) {
 }
 
 let documents = { 'documents': [
-    { 'id': '1', 'language': 'en', 'text': userinput },
+    { 'id': '1', 'language': 'en', 'text': formInput.userInput },
     { 'id': '2', 'language': 'es', 'text': 'Este ha sido un dia terrible, llegué tarde al trabajo debido a un accidente automobilistico.' },
 ]};
 
+exports.documents = documents;
+
+app.post("/api/posts", function(req, res) {
+    console.log(req.body);
+    db.Post.create({
+      title: req.body.title,
+      body: req.body.body,
+      category: req.body.category
+    })
+      .then(function(dbPost) {
+        res.json(dbPost);
+      });
+  });
+
+  app.post("/api/posts", function(req, res) {
+    db.Post.create(req.body).then(function(dbPost) {
+      res.json(dbPost);
+    });
+  });
+
 get_sentiments (documents);
+
+module.exports = get_sentiments;
