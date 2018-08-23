@@ -65,6 +65,8 @@ $(function() {
       //   nameInput.val("");
     });
   }
+// Send scores over to post route - once it's in the post route, response.this reassign to num and num2
+// $.post()
 
   // A function for creating an author. Calls getAuthors upon completion
   function upsertAuthor(authorData) {

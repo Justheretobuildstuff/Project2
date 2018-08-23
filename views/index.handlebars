@@ -30,7 +30,10 @@
 <div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
 
   <script>
-  Highcharts.chart('container', {
+var num = series.data[0].y
+var num2 = series.data[1].y
+
+Highcharts.chart('container', {
   chart: {
     plotBackgroundColor: null,
     plotBorderWidth: null,
@@ -61,12 +64,12 @@
     colorByPoint: true,
     data: [{
       name: 'Neutral',
-      y: 60,
+      y: num,
       sliced: true,
       selected: true
     }, {
       name: 'Rude',
-      y: 40
+      y: num2
     },]
   }]
 });
