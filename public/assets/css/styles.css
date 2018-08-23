@@ -1,0 +1,94 @@
+
+body {
+    background-color: #4AA0EB;
+    margin: 0px;
+    padding: 0px;
+    margin-top: 0;
+    
+}
+/*
+Color Pallet
+
+#4AA0EB- Twitter Blue
+#3D4856- grey/black
+#A1ACBD- light grey
+#E379A0- pink
+
+fonts:
+
+font-family: 'Lato', sans-serif;
+font-family: 'Nunito', sans-serif;
+font-family: 'Hind Siliguri', sans-serif;
+font-family: 'Signika', sans-serif;
+
+*/
+
+.header {
+    background-image: url("BUa82WGAQnyHFwq2mE++Gg_thumb_1241.jpg");
+    height: 20em;
+    max-width: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  
+}
+
+
+h1 {
+    font-family: Helvetica, sans-serif;
+    color:#fff;
+    padding-top: 1em;
+    margin-left: 2em;
+    margin-top: 0;
+    padding-top: 4em;
+}
+
+.contentContainer{
+    max-width: 75%;
+    background-color: white;
+    margin: auto;
+    text-align: center;
+    margin-top: -1.2em;
+    padding-bottom: 3em;
+}
+
+h2 {
+   font-family: 'Hind Siliguri', sans-serif;
+   color: #3D4856;
+}
+
+textarea{ 
+    width: 50%;
+    height: 10em;
+    font-family: 'Nunito', sans-serif;
+    border: 2px #E379A0 solid;
+    font-size: 1em;
+    color: #3D4856;
+}
+
+button{
+    margin: 2em;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1em;
+    padding: .5em;
+    border: #E379A0 solid 2px; 
+    border-radius: 25px;
+  
+}
+
+button:hover{
+    border: #4AA0EB solid 2px;
+    background-color: #3D4856;
+   color:#fff;
+   border-radius: 25px;
+}
+
+#celebrity{
+    width: 25%;
+    height: 1em;
+    font-family: 'Nunito', sans-serif;
+    border: 2px #E379A0 solid;
+    font-size: 1em;
+    color: #3D4856;
+}
