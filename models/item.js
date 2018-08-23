@@ -10,7 +10,8 @@ module.exports = function(sequelize, DataTypes) {
         }
     },
     score: { 
-        type: DataTypes.FLOAT
+        type: DataTypes.FLOAT,
+        defaultValue: 0
     }
   })
   return Item;

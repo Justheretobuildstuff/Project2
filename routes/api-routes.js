@@ -17,13 +17,15 @@ module.exports = function(app) {
 
   // POST route
   app.post("/api/new", function(req, res) {
-    const text = req.body.text;
-    const category = req.body.category;
+    // console logs for testing purposes
+    console.log(req.body.userInput + ">>this is reg.body.userInput");
+    console.log(req.body + ">>this is reg.body");
+    const userInput = req.body.userInput;
     db.Item.create({
-      text: text,
-      category: category
+      text: userInput
     }).then(function(result) {
-      res.json(result);
+      // What to render after uses presses submit
+      //res.json(result);
     });
   });
 };
