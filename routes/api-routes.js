@@ -18,8 +18,11 @@ module.exports = function(app) {
   // POST route
   app.post("/api/new", function(req, res) {
     // console logs for testing purposes
+    console.log("POST Request sent to /api/new.........")
     console.log(req.body.userInput + ">>this is reg.body.userInput");
     console.log(req.body + ">>this is reg.body");
+    
+    // Start Code for POST request
     const userInput = req.body.userInput;
     db.Item.create({
       text: userInput
