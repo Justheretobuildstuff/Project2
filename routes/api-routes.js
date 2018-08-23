@@ -6,15 +6,16 @@ module.exports = function(app) {
   // Requiring our models
   var db = require("../models");
 
-  // GET route for getting all of the todos
+  // GET route for getting all of the items
   app.get("/api/all", function(req, res) {
     // findAll returns all entries for a table when used with no options
-    db.Todo.findAll({}).then(function(result) {
-      // We have access to the todos as an argument inside of the callback function
+    db.Item.findAll({}).then(function(result) {
+      // We have access to the items as an argument inside of the callback function
       res.json(result);
     });
   });
 
+  // POST route
   app.post("/api/new", function(req, res) {
     const text = req.body.text;
     const category = req.body.category;
