@@ -71,7 +71,7 @@
                 type: 'pie'
             },
             title: {
-                text: 'Browser market shares in January, 2018'
+                text: 'Rude Dude Breakdown'
             },
             tooltip: {
                 pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -93,54 +93,15 @@
                 name: 'Brands',
                 colorByPoint: true,
                 data: [{
-                    name: 'Good',
-                    y: 40,
+                    name: 'Neutral',
+                    y: 60,
                     sliced: true,
                     selected: true
-                }, {
-                    name: 'Neutral',
-                    y: 20
                 }, {
                     name: 'Douche',
                     y: 40
                 }]
             }]
-        });
-
-// High Chart 2
-        $(function () {
-                var processed_json = new Array();   
-                $.getJSON('http://localhost:8080/charts_demo/data.json', function(data) {
-                    // Populate series
-                    for (i = 0; i < data.length; i++){
-                        processed_json.push([data[i].key, data[i].value]);
-                    }
-                    // draw chart
-                    $('#container').highcharts({
-                    chart: {
-                        type: "column"
-                    },
-                    title: {
-                        text: "Student data"
-                    },
-                    xAxis: {
-                        type: 'category',
-                        allowDecimals: false,
-                        title: {
-                            text: ""
-                        }
-                    },
-                    yAxis: {
-                        title: {
-                            text: "Scores"
-                        }
-                    },
-                    series: [{
-	                    name: 'Subjects',
-                        data: processed_json
-                    }]
-                }); 
-            });
         });
     </script>
 </head>
