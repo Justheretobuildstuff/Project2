@@ -32,7 +32,6 @@ $(function() {
       ]
     };
 
-    // Need to add on button press here
     $.ajax({
       url:
         "https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment?" +
@@ -54,4 +53,21 @@ $(function() {
         alert("error");
       });
   });
+
+  // Function for retrieving scores and getting them ready to be rendered to the page
+  function getScores() {
+    $.get("/api/new", function(data) {
+      //   var rowsToAdd = [];
+      //   for (var i = 0; i < data.length; i++) {
+      //     rowsToAdd.push(createAuthorRow(data[i]));
+      //   }
+      //   renderAuthorList(rowsToAdd);
+      //   nameInput.val("");
+    });
+  }
+
+  // A function for creating an author. Calls getAuthors upon completion
+  function upsertAuthor(authorData) {
+    $.post("/api/authors", authorData).then(getAuthors);
+  }
 });
