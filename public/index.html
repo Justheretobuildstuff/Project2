@@ -106,7 +106,49 @@
                 }]
             }]
         });
-    </script>
-</body>
 
+// High Chart 2
+        $(function () {
+                var processed_json = new Array();   
+                $.getJSON('http://localhost:8080/charts_demo/data.json', function(data) {
+                    // Populate series
+                    for (i = 0; i < data.length; i++){
+                        processed_json.push([data[i].key, data[i].value]);
+                    }
+                    // draw chart
+                    $('#container').highcharts({
+                    chart: {
+                        type: "column"
+                    },
+                    title: {
+                        text: "Student data"
+                    },
+                    xAxis: {
+                        type: 'category',
+                        allowDecimals: false,
+                        title: {
+                            text: ""
+                        }
+                    },
+                    yAxis: {
+                        title: {
+                            text: "Scores"
+                        }
+                    },
+                    series: [{
+	                    name: 'Subjects',
+                        data: processed_json
+                    }]
+                }); 
+            });
+        });
+    </script>
+</head>
+<body>
+   <div style="width: 800px; margin: 2em auto; padding: 1em; border: 1px solid red; border-radius: 0.5em">
+	Highcharts data load from a JSON using manual JSON Processing
+	</div>
+    <div id="container" style="height: 400px"></div>
+    
+</body>
 </html>
