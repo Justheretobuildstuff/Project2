@@ -1,7 +1,7 @@
 $(function() {
     let userInput = $("#userInput");
     console.log(userInput);
-    var params = {
+    let params = {
             "documents": [
                 {
                     "language": "en",
