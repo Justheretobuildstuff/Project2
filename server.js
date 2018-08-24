@@ -26,7 +26,7 @@ db.sequelize.sync({ force: true }).then(function() {
 
   // Start our server so that it can begin listening to client requests.
   db.sequelize.sync().then(function() {
-    app.listen(PORT, function() {
+    app.listen(process.env.PORT || 3000, function(){
       console.log(`Listening on PORT ${PORT}`);
     });
   });
