@@ -20,6 +20,7 @@ module.exports = function(app) {
     console.log("app hitting post request for /api/new");
     // Start Code for POST request
     const userInput = "'" + req.body.text + "'";
+    console.log(JSON.stringify(req.body));
     const score = req.body.score;
     console.log(score + ": score");
     console.log(userInput + ": userInput");
@@ -43,3 +44,4 @@ module.exports = function(app) {
     });
   });
 };
+
