@@ -46,7 +46,7 @@ $(function() {
     })
       .done(function(response) {
         console.log(JSON.stringify(response));
-        newScore = response.documents[0].score;
+        newScore = response.documents.score;
 
         // After obtaining data from external API, will send this information to our database using createItem function. Currently function is running twice??
         createItem(userInput, newScore);

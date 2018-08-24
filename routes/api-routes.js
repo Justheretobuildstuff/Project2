@@ -32,6 +32,20 @@ module.exports = function(app) {
     });
   });
 
+  /*
+  // PUT route (not currently used)
+  app.put("/api/new/:id", function(req, res) {
+    console.log(req.body);
+    db.Item.update(req.body,
+      {
+        where: {
+          id: req.params.id
+        }
+      })
+      .then(function(dbItem) {
+        res.send(dbItem);
+      });
+*/
   app.post("/api/textList", function(req, res) {
     console.log("app hitting post request for textList");
     const userInput = "'" + req.body.userInput + "'";
