@@ -15,6 +15,16 @@ module.exports = function(app) {
     });
   });
 
+  // app.get("/mypage/:score", function(req, res){
+
+  //   // let data = "where you got your data from before";
+    
+
+  //   let score = req.params.score;
+  //   console.log("this is our score: " + score);
+  //   res.render("score", {score} )
+  // })
+
   // POST route
   app.post("/api/new", function(req, res) {
     // console logs for testing purposes
