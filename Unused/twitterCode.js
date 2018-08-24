@@ -1,4 +1,6 @@
-require("dotenv").config();
+// File Currently Not Used
+
+/*
 var Twitter = require('twitter');
 var request = require('request');
 
@@ -17,3 +19,5 @@ var client = new Twitter({
       console.log(tweets);
     }
   });
+
+  */

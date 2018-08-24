@@ -1,16 +1,15 @@
 <body>
   <div class="header">
-        <h1>Rude Dude</h1>
+    <h1>Rude Dude</h1>
   </div>
   <div class="contentContainer">
-    <form method="POST" action="/api/new">
-    <!--<form>-->
+    <form method="POST" action="/api/textList">
       <h2>Put in your text to see if it is rude!</h2>
       <br>
-      <textarea rows="4" name="userInput" id="userInput">
-</textarea>
+      <textarea rows="4" name="userInput" id="userInput"></textarea>
       <br>
       <button id="submit">Should You Send the Text?</button>
+    </form>
 
       <h2>Score</h2>
       {{userScore}}
@@ -19,31 +18,16 @@
 
       {{averageScore}}
 
-    </form>
   </div>
   <div>
 
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-<script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
 
-<div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+    <div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
 
 <script>
-{{!-- var num = series.data[0].y; --}}
-{{!-- var num2 = series.data[1].y; --}}
-
-{{!-- document.write(response.documents[0].score); --}}
-{{!-- document.write(series.dadta[0].y); --}}
-
-{{!-- console.log(series.data[0].y); --}}
-{{!-- console.log(num2); --}}
-
-var num = 60;    
-var num2 = 40;    
-
-{{!-- console.log(y); --}}
-
 Highcharts.chart('container', {
   chart: {
     plotBackgroundColor: null,
@@ -86,7 +70,7 @@ Highcharts.chart('container', {
 });
  </script>
   </div>
-  
-  </body>
 
-  </html>
+</body>
+
+</html>
