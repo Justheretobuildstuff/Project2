@@ -1,12 +1,12 @@
 $(function() {
+  let newScore;
   $("#submit").on("click", function() {
     let userInput = $("#userInput").val();
-    console.log(userInput);
     let params = {
       documents: [
         {
           language: "en",
-          id: "1",
+          id: 1,
           text: "'" + userInput + "'"
         }
         // {
@@ -42,12 +42,14 @@ $(function() {
         Accept: "application/json"
       },
       type: "POST",
-      // Request body
       data: JSON.stringify(params)
     })
       .done(function(response) {
-        alert("success");
-        console.log(response.documents[0].score);
+        console.log(JSON.stringify(response));
+        newScore = response.documents[0].score;
+
+        // After obtaining data from external API, will send this information to our database using createItem function. Currently function is running twice??
+        createItem(userInput, newScore);
       })
       .fail(function() {
         alert("error");
@@ -57,17 +59,22 @@ $(function() {
   // Function for retrieving scores and getting them ready to be rendered to the page
   function getScores() {
     $.get("/api/new", function(data) {
-      //   var rowsToAdd = [];
-      //   for (var i = 0; i < data.length; i++) {
-      //     rowsToAdd.push(createAuthorRow(data[i]));
-      //   }
-      //   renderAuthorList(rowsToAdd);
-      //   nameInput.val("");
+      // Dave may put code in here to render the data/graphs
+      // CODE GOES HERE
     });
   }
 
-  // A function for creating an author. Calls getAuthors upon completion
-  function upsertAuthor(authorData) {
-    $.post("/api/authors", authorData).then(getAuthors);
+  // This function will add the data to database
+  function createItem(userInput, score) {
+    $.ajax({
+      method: "POST",
+      url: "/api/new",
+      data: {
+        text: userInput,
+        score: score
+      }
+    }).then(function() {
+      window.location.href = "/";
+    });
   }
 });

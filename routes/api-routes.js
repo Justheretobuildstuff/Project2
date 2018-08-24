@@ -17,18 +17,34 @@ module.exports = function(app) {
 
   // POST route
   app.post("/api/new", function(req, res) {
-    // console logs for testing purposes
-    console.log("POST Request sent to /api/new.........")
-    console.log(req.body.userInput + ">>this is reg.body.userInput");
-    console.log(req.body + ">>this is reg.body");
-    
+   
+    console.log("app hitting post request");
     // Start Code for POST request
-    const userInput = req.body.userInput;
+    // USER INPUT IS COMING TO POST REQUEST AS UNDEFINED
+    const userInput = "'" + req.body.userInput + "'";
+    const score = req.body.score;
+    console.log(score + ": score");
+    console.log(userInput + ": userInput");
     db.Item.create({
-      text: userInput
+      text: userInput,
+      score: score
     }).then(function(result) {
       // What to render after uses presses submit
       //res.json(result);
     });
+  });
+
+  // PUT route (not currently used)
+  app.put("/api/new/:id", function(req, res) {
+    console.log(req.body);
+    db.Item.update(req.body,
+      {
+        where: {
+          id: req.params.id
+        }
+      })
+      .then(function(dbItem) {
+        res.send(dbItem);
+      });
   });
 };
