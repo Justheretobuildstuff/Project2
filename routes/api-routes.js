@@ -31,11 +31,6 @@ module.exports = function(app) {
       res.json(result);
     });
   });
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 4eb3cb309ec278aaabfdbe666f410baf25dfd53f
   /*
   // PUT route (not currently used)
   app.put("/api/new/:id", function(req, res) {
@@ -49,8 +44,6 @@ module.exports = function(app) {
       .then(function(dbItem) {
         res.send(dbItem);
       });
-<<<<<<< HEAD
-=======
   app.post("/api/textList", function(req, res) {
     console.log("app hitting post request for textList");
     const userInput = "'" + req.body.userInput + "'";
@@ -60,7 +53,6 @@ module.exports = function(app) {
       // What to render after uses presses submit
       //res.json(result);
     });
->>>>>>> 8974d30a24196eea2432e8e11fa9f93e668600f1
   });
 
 =======
