@@ -8,19 +8,15 @@ body {
 }
 /*
 Color Pallet
-
 #4AA0EB- Twitter Blue
 #3D4856- grey/black
 #A1ACBD- light grey
 #E379A0- pink
-
 fonts:
-
 font-family: 'Lato', sans-serif;
 font-family: 'Nunito', sans-serif;
 font-family: 'Hind Siliguri', sans-serif;
 font-family: 'Signika', sans-serif;
-
 */
 
 .header {
@@ -49,8 +45,9 @@ h1 {
     background-color: white;
     margin: auto;
     text-align: center;
-    margin-top: -1.2em;
+    margin-top: .5 em;
     padding-bottom: 3em;
+    border-radius: 25px;
 }
 
 h2 {
