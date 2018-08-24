@@ -20,6 +20,7 @@ module.exports = function(app) {
     console.log("app hitting post request for /api/new");
     // Start Code for POST request
     const userInput = "'" + req.body.text + "'";
+    console.log(JSON.stringify(req.body));
     const score = req.body.score;
     console.log(score + ": score");
     console.log(userInput + ": userInput");
@@ -31,33 +32,7 @@ module.exports = function(app) {
       res.json(result);
     });
   });
-  /*
-  // PUT route (not currently used)
-  app.put("/api/new/:id", function(req, res) {
-    console.log(req.body);
-    db.Item.update(req.body,
-      {
-        where: {
-          id: req.params.id
-        }
-      })
-      .then(function(dbItem) {
-        res.send(dbItem);
-      });
-  app.post("/api/textList", function(req, res) {
-    console.log("app hitting post request for textList");
-    const userInput = "'" + req.body.userInput + "'";
-    db.Text.create({
-      text: userInput,
-    }).then(function(result) {
-      // What to render after uses presses submit
-      //res.json(result);
-    });
-  });
 
-=======
->>>>>>> 4eb3cb309ec278aaabfdbe666f410baf25dfd53f
-*/
   app.post("/api/textList", function(req, res) {
     console.log("app hitting post request for textList");
     const userInput = "'" + req.body.userInput + "'";
@@ -69,3 +44,4 @@ module.exports = function(app) {
     });
   });
 };
+
