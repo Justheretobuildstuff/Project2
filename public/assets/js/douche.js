@@ -46,24 +46,23 @@ $(function() {
     })
       .done(function(response) {
         console.log(JSON.stringify(response));
-        newScore = response.documents.score;
+        newScore = response.documents[0].score;
 
-        // After obtaining data from external API, will send this information to our database using createItem function. Currently function is running twice??
+        // After obtaining data from external API, will send this information to our database using createItem function
         createItem(userInput, newScore);
       })
       .fail(function() {
-        console.log(userInput + newScore);
         alert("error is happening in AJAX call after submit click");
       });
   });
 
   // Function for retrieving scores and getting them ready to be rendered to the page
-  function getScores() {
-    $.get("/api/new", function(data) {
-      // Dave may put code in here to render the data/graphs
-      // CODE GOES HERE
-    });
-  }
+//   function getScores() {
+//     $.get("/api/new", function(data) {
+//       // Dave may put code in here to render the data/graphs
+//       // CODE GOES HERE
+//     });
+//   }
 
   // This function will add the data to database
   function createItem(userInput, score) {
