@@ -1,5 +1,3 @@
-# Project2
-
 Summary for Project 2.
 
 Using Microsoft Azure this website will evaluate the text for likability. We designed this with the thought of creating a more politically correct world (because the world isnt politically correct enough already!).
@@ -36,5 +34,3 @@ Installing and using from a private server:
 8. The website will return a score from 0-100. the lower the score the lower the likability of your text. 
 
 9. The website will also return a pie chart to reflect how the text could be perceived.
-
-
