@@ -1,3 +1,6 @@
+// Currently this file is not used
+
+/*
 'use strict';
 
 require("dotenv").config();
@@ -76,3 +79,5 @@ app.post("/api/posts", function(req, res) {
 get_sentiments (documents);
 
 module.exports = get_sentiments;
+
+*/

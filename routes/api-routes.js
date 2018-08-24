@@ -34,6 +34,7 @@ module.exports = function(app) {
     });
   });
 
+  /*
   // PUT route (not currently used)
   app.put("/api/new/:id", function(req, res) {
     console.log(req.body);
@@ -47,4 +48,6 @@ module.exports = function(app) {
         res.send(dbItem);
       });
   });
+
+*/
 };
