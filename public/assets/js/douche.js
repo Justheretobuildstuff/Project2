@@ -3,8 +3,7 @@ $(function() {
   $("#submit").on("click", function() {
     let userInput = $("#userInput").val();
     let params = {
-      documents: [
-        {
+      documents: [{
           language: "en",
           id: 1,
           text: "'" + userInput + "'"
@@ -44,17 +43,70 @@ $(function() {
       type: "POST",
       data: JSON.stringify(params)
     })
-      .done(function(response) {
-        console.log(JSON.stringify(response));
-        newScore = response.documents[0].score;
+    .done(function (response) {
+      console.log("success");
+      console.log(response.documents[0].score);
+      var x = response.documents[0].score;
+      var y = Math.round(x * 100)
+      console.log(y);
+      myObj.series[0].data[0].y = y
+      myObj.series[0].data[1].y = 100 - y
 
-        // After obtaining data from external API, will send this information to our database using createItem function
-        createItem(userInput, newScore);
-      })
+      Highcharts.chart('container', myObj);
+
+      // location.assign("/mypage/" + y);
+    })
       .fail(function() {
         alert("error is happening in AJAX call after submit click");
       });
   });
+
+  // Highcharts.chart('container', {
+  //   chart: {
+  //     plotBackgroundColor: null,
+  //     plotBorderWidth: null,
+  //     plotShadow: false,
+  //     type: 'pie'
+  //   },
+  //   title: {
+  //     text: 'Rude Dude Breakdown'
+  //   },
+  //   tooltip: {
+  //     pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+  //   },
+  //   plotOptions: {
+  //     pie: {
+  //       allowPointSelect: true,
+  //       cursor: 'pointer',
+  //       dataLabels: {
+  //         enabled: true,
+  //         format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+  //         style: {
+  //           color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+  //         }
+  //       }
+  //     }
+  //   },
+  //   series: [{
+  //     name: 'Rude Dude',
+  //     colorByPoint: true,
+  //     data: [{
+  //       name: 'Neutral',
+  //       y: y,
+  //       sliced: true,
+  //       selected: true
+  //     }, {
+  //       name: 'Rude',
+  //       y: 100 - y
+  //     },]
+  //   }]
+  // });
+
+  // var graph = response.documents[0].score
+  // let graph = 22;
+  // export {graph};
+  // console.log(graph)
+
 
   // Function for retrieving scores and getting them ready to be rendered to the page
 //   function getScores() {
@@ -76,5 +128,47 @@ $(function() {
     }).then(function() {
       window.location.href = "/";
     });
+  }
+
+
+  var myObj = {
+    chart: {
+      plotBackgroundColor: null,
+      plotBorderWidth: null,
+      plotShadow: false,
+      type: 'pie'
+    },
+    title: {
+      text: 'Rude Dude Breakdown'
+    },
+    tooltip: {
+      pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+    },
+    plotOptions: {
+      pie: {
+        allowPointSelect: true,
+        cursor: 'pointer',
+        dataLabels: {
+          enabled: true,
+          format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+          style: {
+            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+          }
+        }
+      }
+    },
+    series: [{
+      name: 'Rude Dude',
+      colorByPoint: true,
+      data: [{
+        name: 'Neutral',
+        y: 50,
+        sliced: true,
+        selected: true
+      }, {
+        name: 'Rude',
+        y: 100
+      },]
+    }]
   }
 });
