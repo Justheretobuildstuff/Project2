@@ -2,30 +2,40 @@
   <div class="header">
     <h1>Rude Dude</h1>
   </div>
-  <div class="contentContainer">
-    <form method="POST" action="/api/textList">
-      <h2>Put in your text to see if it is rude!</h2>
-      <br>
-      <textarea rows="4" name="userInput" id="userInput"></textarea>
-      <br>
-      <button id="submit">Should You Send the Text?</button>
-    </form>
+  <div class="container"> 
 
-      <h2>Score</h2>
-      {{userScore}}
+ <div class="row">
+   <div class="col-6">
+          <div class="contentContainer">
+            <form method="POST" action="/api/textList">
+              <h2>Put in your text to see if it is rude!</h2>
+              <br>
+              <textarea rows="4" name="userInput" id="userInput"></textarea>
+              <br>
+              <button id="submit">Should You Send the Text?</button>
+            </form>
 
-      <h2>Average Score Amongst Users</h2>
+            <h2>Score</h2>
+            {{userScore}}
 
-      {{averageScore}}
+            <h2>Average Score Amongst Users</h2>
 
-  </div>
-  <div>
+            {{averageScore}}
+
+          </div>
+    </div>
+  
+  
+  
 
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    
 
-    <div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+   <div class="col-6">
+    <div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 2ex auto"></div>
+
 
 <script>
 Highcharts.chart('container', {
@@ -59,17 +69,20 @@ Highcharts.chart('container', {
     colorByPoint: true,
     data: [{
       name: 'Neutral',
-      y: score.score,
+      y: 100,
       sliced: true,
       selected: true
     }, {
       name: 'Rude',
-      y: 100 - score.score;
+      y: 0
     },]
   }]
 });
  </script>
   </div>
+  </div>
+   </div>
+  
 
 </body>
 
