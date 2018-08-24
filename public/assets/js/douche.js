@@ -52,7 +52,8 @@ $(function() {
         createItem(userInput, newScore);
       })
       .fail(function() {
-        alert("error");
+        console.log(userInput + newScore);
+        alert("error is happening in AJAX call after submit click");
       });
   });
 

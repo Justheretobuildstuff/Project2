@@ -17,11 +17,9 @@ module.exports = function(app) {
 
   // POST route
   app.post("/api/new", function(req, res) {
-   
-    console.log("app hitting post request");
+    console.log("app hitting post request for /api/new");
     // Start Code for POST request
-    // USER INPUT IS COMING TO POST REQUEST AS UNDEFINED
-    const userInput = "'" + req.body.userInput + "'";
+    const userInput = "'" + req.body.text + "'";
     const score = req.body.score;
     console.log(score + ": score");
     console.log(userInput + ": userInput");
@@ -30,7 +28,7 @@ module.exports = function(app) {
       score: score
     }).then(function(result) {
       // What to render after uses presses submit
-      //res.json(result);
+      res.json(result);
     });
   });
 
@@ -47,7 +45,15 @@ module.exports = function(app) {
       .then(function(dbItem) {
         res.send(dbItem);
       });
-  });
-
 */
+  app.post("/api/textList", function(req, res) {
+    console.log("app hitting post request for textList");
+    const userInput = "'" + req.body.userInput + "'";
+    db.Text.create({
+      text: userInput,
+    }).then(function(result) {
+      // What to render after uses presses submit
+      //res.json(result);
+    });
+  });
 };
