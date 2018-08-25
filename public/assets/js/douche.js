@@ -4,14 +4,14 @@ $(function() {
     let userInput = $("#userInput").val();
     let params = {
       documents: [{
-          language: "en",
-          id: 1,
+        language: "en",
+        id: 1,
           text: "'" + userInput + "'"
         }
         // {
-        //   language: "en",
-        //   id: "2",
-        //   text: "This is my first test. All is not good"
+          //   language: "en",
+          //   id: "2",
+          //   text: "This is my first test. All is not good"
         // },
         // {
         //   language: "en",
@@ -24,17 +24,17 @@ $(function() {
         //   text: "You got to be kidding me like this"
         // },
         // {
-        //   language: "en",
+          //   language: "en",
         //   id: "5",
         //   text: "I hope this will finally work. I hope it will"
         // }
       ]
     };
-
+    
     $.ajax({
       url:
-        "https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment?" +
-        $.param(params),
+      "https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment?" +
+      $.param(params),
       headers: {
         "Content-Type": "application/json",
         "Ocp-Apim-Subscription-Key": "a609ad2478ad44b284543dd4397cf74e",
@@ -51,9 +51,10 @@ $(function() {
       console.log(y);
       myObj.series[0].data[0].y = y
       myObj.series[0].data[1].y = 100 - y
-
+      $("#userInput").val('');
+      
       Highcharts.chart('container', myObj);
-
+      
       // location.assign("/mypage/" + y);
     })
       .fail(function() {
