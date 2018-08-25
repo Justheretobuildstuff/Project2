@@ -48,9 +48,6 @@ module.exports = function(app) {
     const userInput = "'" + req.body.userInput + "'";
     db.Text.create({
       text: userInput,
-    }).then(function(result) {
-      // What to render after uses presses submit
-      //res.json(result);
     });
   });
 };
