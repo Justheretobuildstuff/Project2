@@ -44,8 +44,8 @@ $(function() {
       data: JSON.stringify(params)
     })
     .done(function (response) {
-      console.log("success");
-      console.log(response.documents[0].score);
+      // console.log("success");
+      // console.log(response.documents[0].score);
       var x = response.documents[0].score;
       var y = Math.round(x * 100)
       console.log(y);
@@ -54,6 +54,8 @@ $(function() {
       $("#userInput").val('');
       
       Highcharts.chart('container', myObj);
+
+      return;
       
       // location.assign("/mypage/" + y);
     })
@@ -128,6 +130,7 @@ $(function() {
       }
     }).then(function() {
       window.location.href = "/";
+      return;
     });
   }
 

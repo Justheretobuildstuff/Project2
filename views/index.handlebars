@@ -7,21 +7,14 @@
  <div class="row">
    <div class="col-xs-6 col-md-4 col-lg-6">
           <div class="contentContainer">
-            <form method="POST" action="/api/textList">
+            {{!-- <form method="GET" action="/api/textList"> --}}
+            <form></form>
               <h2>Put in your text to see if it is rude!</h2>
               <br>
               <textarea rows="4" name="userInput" id="userInput"></textarea>
               <br>
               <button id="submit">Should You Send the Text?</button>
             </form>
-
-            <h2>Score</h2>
-            {{userScore}}
-
-            <h2>Average Score Amongst Users</h2>
-
-            {{averageScore}}
-
           </div>
     </div>
   

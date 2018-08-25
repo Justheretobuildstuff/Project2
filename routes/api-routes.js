@@ -12,6 +12,7 @@ module.exports = function(app) {
     db.Item.findAll({}).then(function(result) {
       // We have access to the items as an argument inside of the callback function
       res.json(result);
+      return;
     });
   });
 
@@ -40,14 +41,19 @@ module.exports = function(app) {
     }).then(function(result) {
       // What to render after uses presses submit
       res.json(result);
+      return;
     });
   });
 
-  app.post("/api/textList", function(req, res) {
-    console.log("app hitting post request for textList");
-    const userInput = "'" + req.body.userInput + "'";
-    db.Text.create({
-      text: userInput,
-    });
-  });
+  // app.post("/api/textList", function(req, res) {
+  //   console.log("app hitting post request for textList");
+  //   const userInput = "'" + req.body.userInput + "'";
+  //   db.Text.create({
+  //     text: userInput,
+  //   }).then(function(result) {
+  //     // What to render after uses presses submit
+  //     res.end();
+
+  //   });
+  //});
 };
